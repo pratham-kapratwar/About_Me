@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Kapratwar Pratham</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@1&display=swap');
+
+        * {
+            font-family: 'Ubuntu Mono';
+            background-color: black;
+            font-weight: lighter;
+        }
+
+        main {
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            color: white;
+
+        }
+
+        /* object  */
+        b {
+            margin-left: 10%;
+        }
+
+        /* object */
+        t {
+            color: #ffbf01;
+            font-size: 20px;
+        }
+
+        a {
+            color: orchid;
+        }
+
+        /* mobile screen view */
+        @media only screen and (max-width: 400px) {
+            main {
+                font-size: 10px;
+            }
+
+            input {
+                font-size: 14px;
+            }
+
+            t {
+                font-size: 12px;
+            }
+        }
+
+        input {
+            background-color: black;
+            color: rgb(180, 238, 20);
+            font-family: 'Ubuntu Mono';
+            border: none;
+            width: 95%;
+            overflow-x: hidden;
+            font-size: 20px;
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main style="padding: 5px;">
+        <section></section>
+        <br> $ <input></input>
+    </main>
+
+    <script>
+        function print(txt) {
+            // timeout function for effect
+            setTimeout(function () {
+                // prints the output
+                $("section").append(txt + "<br>");
+            });
+        }
+        $(function () {
+            print("<br>\xa0 Hello Folks <a>Pratham Here.....</a><br>\xa0 Welcome to my Special About me command prompt.<br>\xa0 please Type <t>' help '</t> to get started.<br>");
+            $("input").keyup(enter);
+            $("body").click(function () {
+                $("input").focus();
+            });
+            $("span").click(function () {
+                // to change the visibility
+                $("main").css("visibility", "visible");
+                $("article").css("visibility", "hidden");
+            });
+        });
+
+        function enter(event) {
+
+            // if user didn't press the enter key
+            if (event.keyCode != 13) return;
+
+            // get the input
+            var val = $("input").val();
+
+            // print's the user input
+            $("section").append("<br>P_D_K \xa0 $ <t>" + val + "<br>");
+
+            // clear the input box
+            $("input").val("");
+
+            // if no input entered
+            if (val == "") return;
+
+            // get the arguments
+            var args = val.split(" ");
+
+            switch (args[0].toLowerCase()) {
+
+                case "help":
+                    print(help);
+                    break;
+
+                case "about":
+                    print(abt);
+                    break;
+
+                case "skills":
+                    print(skills);
+                    break;
+
+                case "education":
+                    print(education);
+                    break;
+
+                case "work":
+                    print(work);
+                    break;
+
+                case "contact":
+                    print(contact);
+                    break;
+
+                case "projects":
+                    print(projects);
+                    break;
+
+                case "thanks":
+                    print(thanks);
+                    break;
+
+                case "clear":
+                case "cls":
+                    $("section").html("");
+                    break;
+
+                default:
+
+                    print("<br><a>Command</a> : " + args[0] + " Not Found");
+                    break;
+            }
+
+        }
+        var help = "<br><t> Keywords <b> Description</t><br>___________________________________________________<br><br>\xa0help <b> Shows list of commands<br><br>\xa0about <b> About this code<br><br>\xa0skills&emsp; <b> Go through my skills<br><br>\xa0Education <b> educational Background<br><br>\xa0work <b>&emsp; &emsp; where i work<br><br>\xa0contact <b> connect me on<br><br>\xa0projects <b> about my projects<br><br>\xa0thanks <b> thank you<br><br>\xa0clear <b> clear the screen<br>";
+        var abt = "<br>\xa0This code is made by me as PRATHAM KAPRATWAR.<br><br>\xa0I am pursuing my Bachlors degree from zeal college Pune.<br><br>\xa0I am interested in Full Stack Web Development.<br><br>\xa0I am looking for job as a Software Engineer (Fresher 2023 batch)<br>";
+        var skills = "<br>I learned the skills like : <br><br>\xa0<a>Operating System</a> - Windows<br><br>\xa0<a>Programming Languages</a> - C ,C++ ,  JAVA , HTML , CSS , PYTHON(BEGINNER)<br><br>\xa0<a>Code Management Tool</a> - Github <br><br>\xa0\<a>Database</a> - MySQL<br>";
+        var education = "<br>\xa0Saraswati Vidya Mandir, Kinwat<br><br>\xa0<a>SSC - 83.00 %</a> \xa0 -2017<br><br>\xa0Saraswati Vidya Mandir Junior College, Kinwat <br><br>\xa0<a>HSC - 63.54 %</a> \xa0 -2019 <br><br>\xa0Zeal College Of Engineering And Research Centre, Pune <br><br>\xa0<a>FE - 8.04 SGPA</a> \xa0 -2020  <br><br>\xa0<a>SE - 9.20 SGPA </a> \xa0 -2021 <br><br>\xa0<a>TE - Pursuing </a> \xa0  -2022 <br>";
+        var work = "<br>\xa0So i am a<a> College Student</a> , At SPPU university. <br><br>\xa0I am currently learning Information Technology Engineering.<br>";
+        var contact = "<br>\xa0<a>Email</a> : prathamkapratwar1234@gmail.com <br><br>\xa0<a>Phone</a> : +91 9370283735 <br><br>\xa0<a>Linkedin </a> : https://in.linkedin.com/in/pratham-kapratwar<br>";
+        var projects = "<br>\xa0- Created an Chrome Extension named as Bookmark Manager.<br><br>\xa0- Created an portfolio project using HTML,CSS,JS .<br><br>\xa0- Created an Online Examination System in PHP.<br><br>\xa0- Created an healthcare chatbot using HTML,CSS,JS,PHP.<br><br>\xa0- Created an TodoList using React.<br><br>\xa0- Created an Bank Transaction Model in PHP. <br>";
+        var thanks = "<br><t>\xa0 ~ HAPPY CODING !!! "
+        var info = {
+            help: "Syntax: help<br><br>Description: Shows a list of all commands",
+            about: "Syntax: about<br><br>Description: Prints something about this code",
+            work: "Syntax: work [message]<br><br>Description: Where i work",
+            contact: "Syntax: contact [message]<br><br>Description: Connect me on",
+            projects: "Syntax: projects [message]<br><br>Description: about my projects",
+            thanks: "Syntax: thank_you [message]<br><br>Description: thank you ",
+            clear: "Syntax: clear<br><br>Description: clears the screen",
+            cls: "Syntax: cls<br><br>Description: clears the screen",
+        }
+    </script>
+
+</body>
+
+</html>
